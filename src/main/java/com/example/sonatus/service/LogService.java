@@ -20,7 +20,7 @@ public class LogService {
     private final ConcurrentMap<String, NavigableMap<Instant, String>> logsMap = new ConcurrentHashMap<>();
 
     /**
-     * Store a new log entry in a thread-safe manner.
+     * Storing a new Log Entry
      */
     public void addLog(LogEntry entry) {
         // Get or create the map for this service
@@ -31,7 +31,7 @@ public class LogService {
     }
 
     /**
-     * Retrieve logs for a given service name between [start, end].
+     * Retrieve logs for a given service name between start and end timestamp(both inclusive) [start, end].
      */
     public List<LogEntry> getLogs(String serviceName, Instant start, Instant end) {
         NavigableMap<Instant, String> serviceLogs = logsMap.get(serviceName);
@@ -47,7 +47,7 @@ public class LogService {
     }
 
     /**
-     * Remove logs older than 1 hour from now.
+     * Removing Logs Older than 1 Hour From Now
      */
     public void removeOldLogs() {
         Instant cutoff = Instant.now().minus(Duration.ofHours(1));
@@ -56,7 +56,7 @@ public class LogService {
             // We can headMap them and remove them.
             NavigableMap<Instant, String> toRemove = map.headMap(cutoff, false);
             // We can remove them in a safe way:
-            toRemove.clear(); // Clears all older than cutoff
+            toRemove.clear();
         }
     }
 }

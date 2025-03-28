@@ -18,6 +18,8 @@ public class LogCleanupTask {
      */
     @Scheduled(fixedRate = 60000) // 60,000 ms = 1 minute
     public void cleanupOldLogs() {
+        //keeping the schedule as 1 minute , as every minute we want to check whether
+        // there are logs that are more than 1 hour old
         logService.removeOldLogs();
     }
 }
