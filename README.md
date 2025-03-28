@@ -6,6 +6,7 @@ Steps to Run the Assignment:
      4 The apis (Post - logs and Get) can be tested via Postman.
 
 System Architecture
+
 ✅ 1. API Layer (LogController)
 Handles HTTP requests from clients (POST /logs and GET /logs).
 
