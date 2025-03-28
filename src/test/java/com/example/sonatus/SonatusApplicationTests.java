@@ -8,6 +8,7 @@ class SonatusApplicationTests {
 
     @Test
     void contextLoads() {
+
     }
 
 }
